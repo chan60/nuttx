@@ -29,6 +29,7 @@
 #include <nuttx/compiler.h>
 
 #include <stdint.h>
+#include "../include/board.h"
 
 /****************************************************************************
  * Pre-processor Definitions
@@ -75,16 +76,17 @@
 
 /* LED */
 
-#define GPIO_LD1       (GPIO_OUTPUT | GPIO_PUSHPULL | GPIO_SPEED_50MHz | \
+#define GPIO_LD1        (GPIO_OUTPUT | GPIO_PUSHPULL | GPIO_SPEED_50MHz | \
                         GPIO_OUTPUT_CLEAR | GPIO_PORTB | GPIO_PIN0)
-#define GPIO_LD2       (GPIO_OUTPUT | GPIO_PUSHPULL | GPIO_SPEED_50MHz | \
+#define GPIO_LD2        (GPIO_OUTPUT | GPIO_PUSHPULL | GPIO_SPEED_50MHz | \
                         GPIO_OUTPUT_CLEAR | GPIO_PORTE | GPIO_PIN1)
-#define GPIO_LD3       (GPIO_OUTPUT | GPIO_PUSHPULL | GPIO_SPEED_50MHz | \
+#define GPIO_LD3        (GPIO_OUTPUT | GPIO_PUSHPULL | GPIO_SPEED_50MHz | \
                         GPIO_OUTPUT_CLEAR | GPIO_PORTB | GPIO_PIN14)
 
 #define GPIO_LED_GREEN  GPIO_LD1
-#define GPIO_LED_ORANGE GPIO_LD2
+#define GPIO_LED_BLUE   GPIO_LD2
 #define GPIO_LED_RED    GPIO_LD3
+
 
 #define GPIO_OTGFS_VBUS   (GPIO_INPUT|GPIO_FLOAT|GPIO_SPEED_100MHz| \
                            GPIO_OPENDRAIN|GPIO_PORTA|GPIO_PIN9)
@@ -146,7 +148,7 @@
  *
  *   CONFIG_BOARD_LATE_INITIALIZE=y :
  *     Called from board_late_initialize().
- *
+ 
  ****************************************************************************/
 
 int stm32_bringup(void);
